@@ -1,0 +1,50 @@
+{
+  "defaultLanguage": "ar",
+  "kiosk": true,
+  "flow": {
+    "idleTimeoutMs": 45000,
+    "paymentTimeoutMs": 60000,
+    "thankYouMs": 8000,
+    "countdownSeconds": 3,
+    "maxRetakes": 2,
+    "mirrorLiveView": true,
+    "price": { "amount": 20, "currency": "SAR" }
+  },
+  "attract": {
+    "video": ""
+  },
+  "camera": {
+    "driver": "webcam",
+    "liveViewFps": 20,
+    "imageQuality": "LargeJPEGFine",
+    "captureTimeoutMs": 15000
+  },
+  "printer": {
+    "driver": "mock",
+    "deviceName": "DP-DS-RX1HS",
+    "paper": { "widthIn": 6, "heightIn": 4, "dpi": 300 },
+    "mediaCapacity": 700,
+    "lowMediaWarning": 50,
+    "mockPrintMs": 3000
+  },
+  "payment": {
+    "driver": "mock",
+    "mockOutcome": "approved",
+    "mockDelayMs": 4000
+  },
+  "print": {
+    "caption": "NASR",
+    "vintage": {
+      "sepia": 0.35,
+      "warmth": 0.08,
+      "contrast": 0.12,
+      "fadeBlack": 0.07,
+      "fadeWhite": 0.04,
+      "vignette": 0.35,
+      "grain": 0.035
+    }
+  },
+  "operator": {
+    "webhookUrl": ""
+  }
+}

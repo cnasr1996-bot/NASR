@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob: file:; style-src 'self' 'unsafe-inline'">
+  <title>Photo Booth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="stage">
+
+    <!-- 1. Attract loop -->
+    <section class="screen" data-screen="attract">
+      <video id="attract-video" class="attract-video" autoplay muted loop playsinline hidden></video>
+      <div class="attract-bg" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="attract-content">
+        <div class="brand-mark" aria-hidden="true">✦</div>
+        <h1 data-i18n="attractTitle"></h1>
+        <p class="pulse" data-i18n="attractSubtitle"></p>
+      </div>
+      <div class="printer-warning" id="printer-warning" hidden></div>
+    </section>
+
+    <!-- 2. Live view + countdown -->
+    <section class="screen" data-screen="capture">
+      <div class="liveview">
+        <video id="webcam" autoplay muted playsinline></video>
+        <img id="canon-frame" alt="">
+        <div class="countdown" id="countdown"></div>
+        <div class="flash" id="flash"></div>
+      </div>
+      <p class="hint" data-i18n="captureHint"></p>
+    </section>
+
+    <!-- 3. Review -->
+    <section class="screen" data-screen="review">
+      <h2 data-i18n="reviewTitle"></h2>
+      <div class="print-preview"><canvas id="print-canvas"></canvas></div>
+      <div class="actions">
+        <button class="btn ghost" data-action="retake">
+          <span data-i18n="retake"></span>
+          <small id="retakes-left"></small>
+        </button>
+        <button class="btn primary" data-action="confirm" data-i18n="looksGood"></button>
+      </div>
+    </section>
+
+    <!-- 4. Payment -->
+    <section class="screen" data-screen="payment">
+      <h2 data-i18n="paymentTitle"></h2>
+      <div class="amount" id="amount"></div>
+      <div class="loader" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lead" data-i18n="paymentInstruction"></p>
+      <p class="muted" data-i18n="paymentMethods"></p>
+      <div class="actions"><button class="btn ghost" data-action="cancelPayment" data-i18n="cancel"></button></div>
+    </section>
+
+    <section class="screen" data-screen="paymentFailed">
+      <div class="icon-circle warn" aria-hidden="true">!</div>
+      <h2 data-i18n="paymentFailedTitle"></h2>
+      <p class="lead" id="payment-failed-reason"></p>
+      <div class="actions">
+        <button class="btn ghost" data-action="reset" data-i18n="startOver"></button>
+        <button class="btn primary" data-action="retryPayment" data-i18n="tryAgain"></button>
+      </div>
+    </section>
+
+    <!-- 5. Printing / thank you -->
+    <section class="screen" data-screen="printing">
+      <div class="print-anim" aria-hidden="true"><div class="paper"></div></div>
+      <h2 data-i18n="printingTitle"></h2>
+      <p class="muted" data-i18n="printingSubtitle"></p>
+    </section>
+
+    <section class="screen" data-screen="thankyou">
+      <svg class="check" viewBox="0 0 52 52" aria-hidden="true">
+        <circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/>
+      </svg>
+      <h1 data-i18n="thankYouTitle"></h1>
+      <p class="lead" data-i18n="thankYouSubtitle"></p>
+    </section>
+
+    <!-- Problems -->
+    <section class="screen" data-screen="outOfService">
+      <div class="icon-circle" aria-hidden="true">⏸</div>
+      <h2 data-i18n="outOfServiceTitle"></h2>
+      <p class="muted" data-i18n="outOfServiceSubtitle"></p>
+    </section>
+
+    <section class="screen" data-screen="error">
+      <div class="icon-circle warn" aria-hidden="true">!</div>
+      <h2 data-i18n="errorTitle"></h2>
+      <p class="lead" id="error-message"></p>
+      <div class="actions"><button class="btn primary" data-action="reset" data-i18n="startOver"></button></div>
+    </section>
+
+    <button class="lang-toggle" id="lang-toggle" data-i18n="langToggle"></button>
+    <div class="idle-warning" id="idle-warning" hidden>
+      <div class="idle-card">
+        <p data-i18n="idleWarning"></p>
+        <div class="idle-count" id="idle-count"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../core/i18n.js"></script>
+  <script src="../core/vintage.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

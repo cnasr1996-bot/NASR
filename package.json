@@ -1,0 +1,24 @@
+{
+  "name": "nasr-photo-booth",
+  "version": "0.1.0",
+  "description": "Self-service photo booth: Canon EOS live view, vintage effect, card payment, DNP printing. Arabic/English touch UI.",
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"test/*.test.js\"",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.nasr.photobooth",
+    "productName": "NASR Photo Booth",
+    "files": ["src/**/*", "config/default.json", "package.json"],
+    "extraResources": [{ "from": "config", "to": "config", "filter": ["local.json"] }],
+    "win": { "target": "nsis" }
+  },
+  "engines": { "node": ">=20" }
+}
