@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASR VR Ride — Operator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>NASR VR Ride</h1>
+    <span id="conn" class="pill bad">offline</span>
+    <span id="showState" class="pill">idle</span>
+    <button id="estop" class="estop" title="Esc">E-STOP</button>
+  </header>
+
+  <div id="estopBanner" class="banner hidden">
+    E-STOP ACTIVE — chairs parked, water and fans off.
+    <button id="release">Release E-stop</button>
+  </div>
+  <div id="error" class="banner warn hidden"></div>
+
+  <section class="card">
+    <h2>Show</h2>
+    <div class="row">
+      <select id="experience"></select>
+      <button id="load">Load</button>
+      <button id="start" class="go">Start</button>
+      <button id="stop">Stop</button>
+      <button id="recenterAll">Recenter all</button>
+      <button id="reload" title="Rescan content folder">↻ Library</button>
+    </div>
+    <div id="expErrors" class="muted"></div>
+  </section>
+
+  <section id="seats" class="grid"></section>
+
+  <section class="card">
+    <h2>Fans &amp; water</h2>
+    <div id="outputs" class="row"></div>
+  </section>
+
+  <section class="card">
+    <h2>Headset links</h2>
+    <div id="urls" class="muted"></div>
+  </section>
+
+  <script src="operator.js"></script>
+</body>
+</html>

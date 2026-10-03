@@ -4,6 +4,8 @@
 
 > 📋 **قبل شراء الأجهزة اقرأ:** [docs/HARDWARE.md](docs/HARDWARE.md)
 > 🔧 **تركيب الأجهزة وتشغيل الكشك:** [docs/SETUP.md](docs/SETUP.md)
+>
+> 🥽 **مشروع منفصل — تجربة VR مع كراسي الحركة والمراوح ورشاشات الماء:** [vr-ride/](vr-ride/README.md)
 
 ## رحلة المستخدم
 

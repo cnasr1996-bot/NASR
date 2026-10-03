@@ -1,0 +1,20 @@
+{
+  "name": "nasr-vr-ride",
+  "version": "0.1.0",
+  "description": "Immersive VR motion ride: WebXR headset player synced to motion chairs, fans and water sprinklers.",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {
+    "selfsigned": "^5.5.0",
+    "three": "^0.186.1",
+    "ws": "^8.22.0"
+  },
+  "optionalDependencies": {
+    "serialport": "^13.0.0"
+  },
+  "engines": { "node": ">=20" }
+}

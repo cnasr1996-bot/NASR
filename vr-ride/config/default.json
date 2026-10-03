@@ -1,0 +1,54 @@
+{
+  "server": {
+    "httpPort": 8080,
+    "httpsPort": 8443,
+    "dataDir": "data",
+    "operatorPin": null
+  },
+  "engine": {
+    "tickHz": 60,
+    "leadMs": 60,
+    "headsetTimeoutMs": 1500,
+    "parkWhenHeadsetRemoved": true
+  },
+  "headset": {
+    "motionCompensation": true,
+    "recenterOnStart": true,
+    "poseHz": 30,
+    "framebufferScale": 1.2,
+    "foveation": 0.3
+  },
+  "seats": [
+    {
+      "id": "1",
+      "name": "Seat 1",
+      "chair": {
+        "driver": "mock",
+        "host": "127.0.0.1",
+        "port": 4123,
+        "format": "P{pitch}R{roll}Y{yaw}H{heave}S{surge}W{sway}V{vibration}F{vibrationHz}\n",
+        "outputRange": [0, 255],
+        "decimals": 0
+      }
+    }
+  ],
+  "outputs": [
+    { "id": "fan-front", "kind": "fan", "driver": "mock", "seats": ["1"] },
+    { "id": "water-front", "kind": "water", "driver": "mock", "seats": ["1"] }
+  ],
+  "limits": {
+    "pitch":  { "min": -15,  "max": 15,  "maxRate": 40 },
+    "roll":   { "min": -15,  "max": 15,  "maxRate": 40 },
+    "yaw":    { "min": -20,  "max": 20,  "maxRate": 40 },
+    "heave":  { "min": -50,  "max": 50,  "maxRate": 150 },
+    "surge":  { "min": -50,  "max": 50,  "maxRate": 150 },
+    "sway":   { "min": -50,  "max": 50,  "maxRate": 150 },
+    "vibration":   { "min": 0, "max": 1,  "maxRate": 20 },
+    "vibrationHz": { "min": 5, "max": 80, "maxRate": 400 }
+  },
+  "water": {
+    "maxOnMs": 1500,
+    "minOffMs": 1000,
+    "maxPerShowMs": 15000
+  }
+}
